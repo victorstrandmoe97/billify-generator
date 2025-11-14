@@ -15,7 +15,7 @@ export const generatePDF = async (invoiceData, templateNumber) => {
       const invoiceElement = React.createElement(InvoiceTemplate, { data: invoiceData, templateNumber });
       const invoiceHTML = ReactDOMServer.renderToString(invoiceElement);
       
-      invoice.innerHTML = invoiceHTML;
+      invoice.textContent = invoiceHTML;
       invoice.style.width = '210mm';
       invoice.style.height = '297mm';
       
