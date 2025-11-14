@@ -15,16 +15,7 @@ export const generatePDF = async (invoiceData, templateNumber) => {
       const invoiceElement = React.createElement(InvoiceTemplate, { data: invoiceData, templateNumber });
       const invoiceHTML = ReactDOMServer.renderToString(invoiceElement);
       
-# === MCP FIX START (javascript.browser.security.insecure-document-method.insecure-document-method) ===
-# Severity: ERROR
-      invoice.innerHTML = invoiceHTML;
-# → Suggested secure fix:
-Corrected code:
       invoice.textContent = invoiceHTML;
-```
-
-The corrected code uses `textContent` instead of `innerHTML` to set the content of the `invoice` element, which prevents the use of potentially unsafe user input. This ensures that the content is treated as plain text and does not pose a security risk.
-# === MCP FIX END ===
       invoice.style.width = '210mm';
       invoice.style.height = '297mm';
       
